@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <title>Hello World</title>
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link href="./css/style.css" rel="stylesheet" />
+        <style>
+            .card:hover {
+                transform: scale(1.1);
+                transition: transform 0.3s ease;
+            }
+    
+            .card {
+                border: 1px solid #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+    
+            .card-body img {
+                width: 100%;
+                transition: transform 0.3s ease;
+            }
+    
+            .card-body img:hover {
+                transform: scale(1.1);
+            }
+    
+            @keyframes brillo {
+                0% {
+                    filter: brightness(100%);
+                }
+                50% {
+                    filter: brightness(150%);
+                }
+                100% {
+                    filter: brightness(100%);
+                }
+            }
+    
+            .card-body img:hover {
+                transform: scale(1.1);
+                animation: brillo 1s infinite;
+            }
+    
+            #sidebar {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: #a51a23;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+                color: white;
+            }
+    
+            #sidebar p {
+                padding: 10px;
+                margin: 0;
+            }
+    
+            #content {
+                transition: margin-left 0.5s;
+                padding: 16px;
+                margin-right: 0px;
+            }
+    
+            .intro {
+                margin-left: 250px;
+                text-align: justify;
+            }
+        
+            .bubble {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: red; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .bubble i {
+        color: white;
+        font-size: 24px;
+    }
+    .carritobutton{
+        height: 45px;
+        width: 45px;
+        margin-top: 0px;
+    }
+        </style>            
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-danger fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="menu.html">Menú</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="eventos.html">Eventos</a></li>
+                        <li class="nav-item active"><a class="nav-link active" href="pedidos.html">Pedidos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="bubble" onclick="openSidebar()">
+            <i class="fas fa-shopping-cart">
+                <img class="carritobutton" src="./img/carrito.png" alt="">
+            </i>
+        </div>
+
+       
+        <script>
+            function openSidebar() {
+    document.getElementById("sidebar").style.width = "420px";
+    document.getElementById("content").style.marginLeft = "0px";
+  }
+  
+  function closeSidebar() {
+    document.getElementById("sidebar").style.width = "0";
+    document.getElementById("content").style.marginLeft= "0";
+  }
+  
+        </script>
+    
+        <div id="sidebar" style="margin-top: 20px;">
+            <button id="closeBtn" onclick="closeSidebar()" class="btncerrar btn btn-success">X</button> <br>
+            <div style="padding: 20px;">
+                <ul id="carrito" class="list-group" style="list-style: none; padding: 0;"></ul>
+                <hr>
+                <p class="text-right" style="margin-bottom: 20px;">Total: <span id="total"></span></p>
+                <div style="text-align: center;">
+                    <button id="boton-vaciar" class="btn btn-danger" style="margin-right: 0px;">Vaciar</button>
+                    <button id="boton-pagar" class="btn btn-success">Pagar</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                </div>
+            </div>
+        </div>
+        
+              <div class="container" style="margin-top: 30px;">
+                <div class="row" id="items">
+                    <h1 style="color: black; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;">Bienvenido al carrito</h1>
+                    <h3 style="color: black; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;">¿Qué vas a llevar?</h3>
+                </div>
+              </div>
+        
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const baseDeDatos = [
+                    { id: 1, nombre: 'Taco de Birria Clásico', descripcion: 'Tortilla de maíz dorada y suave. Relleno jugoso de carne de res birriosa, con cebolla y cilantro picado encima. Acompañado de una salsa roja o verde para un toque picante opcional.', precio: 23.00, imagen: './img/tacoclasico.png' },
+                    { id: 2, nombre: 'Taco de Birria de Queso', descripcion: 'Tortilla de maíz dorada y suave. Relleno de carne de res birriosa y queso derretido, con cebolla y cilantro picado encima. Acompañado de una salsa roja o verde para un toque picante opcional.', precio: 23.00, imagen: './img/tacoqueso.png' },
+                    { id: 3, nombre: 'Taco de Birria de Pollo', descripcion: 'Tortilla de maíz dorada y suave. Relleno de carne de pollo deshebrada en la mezcla de birria, con cebolla y cilantro picado encima. Acompañado de una salsa roja o verde para un toque picante opcional.', precio: 23.00, imagen: './img/tacopollo.png' },
+                    { id: 4, nombre: 'Torta de Birria Ahumada', descripcion: 'Esta torta presenta una jugosa y tierna birria de res ahumada lentamente sobre madera de mezquite, infundiendo un sabor ahumado profundo en cada bocado. El pan bolillo se tuesta ligeramente, creando una textura crujiente por fuera y suave por dentro. Se sirve con cebolla caramelizada, cilantro fresco y una generosa porción de queso Oaxaca derretido, que se funde perfectamente con la carne para una experiencia irresistible.', precio: 59.00, imagen: './img/ahum.jpg' },
+                    { id: 5, nombre: 'Torta de Birria Estilo Jalisco',descripcion: 'Esta torta lleva la esencia de la birria tradicional de Jalisco. La carne de chivo, cuidadosamente marinada en una mezcla de chiles y especias, se cocina a fuego lento hasta alcanzar una suavidad incomparable. El pan bolillo se empapa con los jugos de la birria, añadiendo una dimensión adicional de sabor. Se acompaña con cebolla, cilantro, rábanos frescos y una salsa picante de la casa para un toque de autenticidad.', precio: 59.00, imagen: './img/jalisco.jpg' },
+                    { id: 6, nombre: 'Torta de Birria Mediterránea', descripcion: 'Una reinterpretación fresca y vibrante de la clásica birria, esta torta fusiona sabores mediterráneos con la tradición mexicana. La birria de cordero se sazona con hierbas aromáticas como tomillo y romero, y se cocina a fuego lento hasta que se deshace en la boca. El pan ciabatta, ligeramente tostado, proporciona una base firme para la tierna carne. Se completa con una mezcla de yogur griego, pepino fresco, menta y un toque de limón, creando una combinación de sabores que deleitará tus sentidos.', precio: 59.00, imagen: './img/medit.jpg' },
+                    { id: 7, nombre: 'Agua Fresca de Sandía', descripcion: 'Sumérgete en un oasis de frescura con nuestra Agua Fresca de Sandía Refrescante. Cada sorbo es una explosión de sabor dulce y jugoso de sandía recién cortada, equilibrado con una nota cítrica de lima fresca exprimida. Esta refrescante mezcla te transportará instantáneamente a un día de verano junto a la piscina, mientras te deleitas con la dulzura natural de la sandía y te revitalizas con cada sorbo.', precio: 28.00, imagen: './img/sandia.jpg' },
+                    { id: 8, nombre: 'Agua Fresca de Pepino y Menta', descripcion: 'Descubre un giro refrescante en la hidratación con nuestra Agua Fresca de Pepino y Menta Revitalizante. El pepino fresco se mezcla con hojas de menta recién cortadas para crear una bebida revitalizante que equilibra a la perfección lo fresco y lo herbal. Cada sorbo te invita a una experiencia de sabor rejuvenecedor, donde el sutil toque del pepino se combina con el frescor vigorizante de la menta, dejando una sensación de renovación en cada refrescante sorbo.', precio: 28.00, imagen: './img/pepino.jpg' },
+                    { id: 9, nombre: 'Agua Fresca de Fresa y Kiwi', descripcion: 'Deja que tus sentidos se transporten a un paraíso tropical con nuestra Agua Fresca de Fresa y Kiwi Exótica. La dulzura jugosa de las fresas maduras se combina con la acidez refrescante del kiwi para crear una explosión de sabor vibrante. Cada sorbo es una aventura frutal, donde la frescura natural de las frutas se combina armoniosamente para ofrecerte una experiencia de hidratación tropical única. Refréscate con este elixir de sabores exóticos y sumérgete en una indulgencia frutal sin igual.', precio: 28.00, imagen: './img/fresa.jpg' },
+                    ];
+        
+                    let carrito = [];
+                    const divisa = '$';
+                    const DOMitems = document.getElementById('items');
+                    const DOMcarrito = document.getElementById('carrito');
+                    const DOMtotal = document.getElementById('total');
+                    const DOMbotonVaciar = document.getElementById('boton-vaciar');
+        
+                    function renderizarProductos() {
+            baseDeDatos.forEach((info) => {
+                const miNodo = document.createElement('div');
+                miNodo.classList.add('card', 'col-sm-4');
+                const miNodoCardBody = document.createElement('div');
+                miNodoCardBody.classList.add('card-body');
+                const miNodoTitle = document.createElement('h5');
+                miNodoTitle.classList.add('card-title');
+                miNodoTitle.textContent = info.nombre;
+                const miNodoDescripcion = document.createElement('p');
+                miNodoDescripcion.classList.add('card-text');
+                miNodoDescripcion.textContent = info.descripcion;
+                const miNodoImagen = document.createElement('img');
+                miNodoImagen.classList.add('img-fluid');
+                miNodoImagen.setAttribute('src', info.imagen);
+                const miNodoPrecio = document.createElement('p');
+                miNodoPrecio.classList.add('card-text');
+                miNodoPrecio.textContent = `${info.precio}${divisa}`;
+                const miNodoBoton = document.createElement('button');
+                miNodoBoton.classList.add('btn', 'btn-primary');
+                miNodoBoton.textContent = '+';
+                miNodoBoton.setAttribute('marcador', info.id);
+                miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+                miNodoCardBody.appendChild(miNodoImagen);
+                miNodoCardBody.appendChild(miNodoTitle);
+                miNodoCardBody.appendChild(miNodoDescripcion);
+                miNodoCardBody.appendChild(miNodoPrecio);
+                miNodoCardBody.appendChild(miNodoBoton);
+                miNodo.appendChild(miNodoCardBody);
+                DOMitems.appendChild(miNodo);
+            });
+        }
+    
+        
+                    function anyadirProductoAlCarrito(evento) {
+                        carrito.push(evento.target.getAttribute('marcador'));
+                        renderizarCarrito();
+                    }
+    
+                    
+    
+                    function renderizarCarrito() {
+                        DOMcarrito.textContent = "";
+                        const carritoSinDuplicados = [...new Set(carrito)];
+                        carritoSinDuplicados.forEach((item) => {
+                            const miItem = baseDeDatos.find((itemBaseDatos) => itemBaseDatos.id === parseInt(item));
+                            const numeroUnidadesItem = carrito.filter((itemId) => itemId === item).length;
+                            const miNodo = document.createElement('li');
+                            miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+                            miNodo.textContent = `${numeroUnidadesItem} x ${miItem.nombre} - ${miItem.precio}${divisa}`;
+                            const miBoton = document.createElement('button');
+                            miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+                            miBoton.textContent = 'X';
+                            miBoton.style.marginLeft = '1rem';
+                            miBoton.dataset.item = item;
+                            miBoton.addEventListener('click', borrarItemCarrito);
+                            miNodo.appendChild(miBoton);
+                            DOMcarrito.appendChild(miNodo);
+                        });
+                        DOMtotal.textContent = calcularTotal();
+                    }
+        
+                    function borrarItemCarrito(evento) {
+                        const id = evento.target.dataset.item;
+                        carrito = carrito.filter((carritoId) => carritoId !== id);
+                        renderizarCarrito();
+                    }
+        
+                    function calcularTotal() {
+                        return carrito.reduce((total, item) => {
+                            const miItem = baseDeDatos.find((itemBaseDatos) => itemBaseDatos.id === parseInt(item));
+                            return total + miItem.precio;
+                        }, 0).toFixed(2);
+                    }
+        
+                    function vaciarCarrito() {
+                        carrito = [];
+                        renderizarCarrito();
+                    }
+                    const DOMbotonPagar = document.getElementById('boton-pagar');
+    
+
+                    function mostrarOpcionesDePago() {
+    if (carrito.length === 0) {
+        Swal.fire({
+            icon: "info",
+            title: "Carrito vacío",
+            text: "Agrega productos al carrito para continuar."
+        });
+        return;
+    }
+
+    const metodoPago = prompt('Seleccione el método de pago:\n1. Transferencia bancaria\n2. Depósito');
+
+    if (metodoPago === '1') {
+            const numTarjeta = prompt('Ingrese el número de tarjeta (16 dígitos):');
+            const nombreTitular = prompt('Ingrese el nombre del titular:');
+            const mesVencimiento = prompt('Ingrese el mes de vencimiento:');
+            const añoVencimiento = prompt('Ingrese el año de vencimiento:');
+            const cvv = prompt('Ingrese el CVV:');
+
+            Swal.fire({
+                title: "Resumen de pago",
+                html: `
+                    <b>Número de tarjeta:</b> ${numTarjeta}<br>
+                    <b>Titular:</b> ${nombreTitular}<br>
+                    <b>Fecha de vencimiento:</b> ${mesVencimiento}/${añoVencimiento}<br>
+                    <b>CVV:</b> ${cvv}
+                `,
+                icon: "info",
+                confirmButtonText: "Confirmar pago",
+                showCancelButton: true,
+                cancelButtonText: "Cancelar",
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const pedido = carrito.map(item => {
+                    const producto = baseDeDatos.find(producto => producto.id.toString() === item);
+                    return {
+                        id: producto.id,
+                        nombre: producto.nombre,
+                        descripcion: producto.descripcion,
+                        precio: producto.precio
+                    };
+                });
+                localStorage.setItem('pedido', JSON.stringify(pedido));
+                    carrito = []; // Vaciar el carrito después del pago
+                    renderizarCarrito(); // Actualizar la representación visual del carrito
+                    Swal.fire({
+                        text: "Pago confirmado. Gracias por su compra.",
+                        icon: "success"
+                    });
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    Swal.fire({
+                        text: "Pago cancelado.",
+                        icon: "error"
+                    });
+                }
+            });
+
+        } else if (metodoPago === '2') {
+        const numAleatorio = Math.floor(100000000000 + Math.random() * 900000000000);
+        Swal.fire(`Pase al Oxxo más cercano a depositar, diga el siguiente numero al cajero para completar su compra.\nCódigo: ${numAleatorio}`).then(() => {
+            const pedido = carrito.map(item => {
+                const producto = baseDeDatos.find(producto => producto.id.toString() === item);
+                return {
+                    id: producto.id,
+                    nombre: producto.nombre,
+                    descripcion: producto.descripcion,
+                    precio: producto.precio
+                };
+            });
+            localStorage.setItem('pedido', JSON.stringify(pedido));
+            carrito = []; // Vaciar el carrito después del depósito
+            renderizarCarrito(); // Actualizar la representación visual del carrito
+        });
+    } else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Opción de pago no válida",
+        });
+    }
+    }
+
+    
+                  DOMbotonPagar.addEventListener('click', mostrarOpcionesDePago);
+                          
+                                      DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+                                      renderizarProductos();
+                                      renderizarCarrito();
+                                      const botonMostrarCarrito = document.getElementById('mostrarCarrito');
+                      const sidebar = document.getElementById('sidebar');
+    
+                      botonMostrarCarrito.addEventListener('click', () => {
+                          sidebar.classList.toggle('active');
+                      });
+                      
+                  });
+    
+                  const carritoSidebar = document.getElementById('carrito-sidebar');
+    
+                  function ocultarCarrito() {
+                      carritoSidebar.style.display = 'none';
+                  }
+    
+                  const botonOcultar = document.getElementById('boton-ocultar');
+                  botonOcultar.addEventListener('click', ocultarCarrito);
+    
+                  const imagenes = document.querySelectorAll('.card-body img');
+    
+                      imagenes.forEach((imagen) => {
+                          imagen.addEventListener('mouseenter', () => {
+                              imagen.style.animationPlayState = 'running'; 
+                          });
+    
+                          imagen.addEventListener('mouseleave', () => {
+                              imagen.style.animationPlayState = 'paused'; 
+                          });
+                      });
+    
+    </script>
+        <br>
+        <footer>
+        <div class="container-fluid footer padding">
+        <div class="row text-center">
+        <div class="col-md-4"><img src="img/logo-white.png" />
+        <hr class="light" />
+        <p>449-123-90-67</p>
+        
+        <p>sirenacongelada@gmail.com</p>
+        
+        <p>Tepetates, Jesús Maria #69</p>
+        
+        <p>C.P 20616</p>
+        </div>
+        
+        <div class="col-md-4"><img src="img/horario.png" />
+        <hr class="light" />
+        <p>Lunes a Domingo: 8:00 am - 3:00 pm</p>
+        </div>
+        
+        <div class="col-md-4"><img src="img/eventos.png" />
+        <hr class="light" />
+        <p>Aguascalientes, México</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=100077914327614&mibextid=ZbWKwL" target="_blank" style="font-size: larger;"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/4493710225" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/nahum3235?igsh=MXRpamFic3Q5Y29jaw==" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>Desarrolladores: <br>
+            Carlos del Ángel Martinez Luevano <br>
+            Isis Francina Palafox Perez <br>
+            Diseño: <br>
+            Jesús Mauricio Romero Torres
+            </p>
+        </div>
+        
+        <div class="col-12">
+        <hr class="light-100" />
+        <h5>&copy; La Plebi</h5>
+        </div>
+        </div>
+        </div>
+        </footer>
+    
+        <script src="./js/carrito.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-XXX" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    </body>
+</html>

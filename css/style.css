@@ -1,0 +1,560 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body{
+	height: 100%;
+	width: 100%;
+	font-family: 'Arial Narrow';
+	color: #222;
+    background-color: #fefde1;
+}
+
+.navbar{
+	padding: .8rem;
+}
+
+.navbar-nav li{
+	padding-right: 20px;
+}
+
+.nav-link{
+	font-size: 1.1em !important;
+}
+
+.carousel-inner img{
+	width: 100%;
+	height: 100%;
+}
+
+.carousel-caption{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.btn-primary{
+	background-color: #a51a23;
+	border: 1px solid #a51a23;
+}
+
+.btn-primary:hover{
+	background-color: #460f12;
+	border: 1px solid #460f12;
+}
+
+.bienvenida{
+	background-color:#460f12;
+	;
+}
+
+.bienvenida h3{
+	font-family: 'Franklin Gothic Medium';
+	font-weight: 900;
+	color:#fff;
+}
+
+.bienvenida p{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 400;
+	color:#D8D8D8;
+}
+
+.backgorund-bienvenida{
+	width: 100%;
+	background-color: #a52d35;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.backgorund-bienvenida p{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 400;
+	color: #0e0a1a;
+	text-align: center;
+}
+
+#dijo{
+	font-weight: bold;
+}
+
+#tenemos{
+	font-weight: bold;
+}
+
+.welcome{
+	width: 75%;
+	margin: 0 auto;
+	padding-top: 2rem;
+}
+
+.welcome hr{
+	border-top: 2px solid #0e0a1a;
+	width: 95%;
+	margin-top: .3rem;
+	margin-bottom: 1rem;
+}
+
+.welcome h1{
+	font-family: bigblunt, sans-serif;
+	color: #0e0a1a;
+	font-weight: 100;
+	text-align: center;
+}
+
+.welcome p{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 400;
+	color: #460f12;
+}
+
+.laplebi h1{
+	font-family: bigblunt, sans-serif;
+	color: #a52d35;
+	font-weight: 100;
+	text-align: center;
+}
+
+.delivery h4{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 900;
+	color: #696969;
+}
+
+.delivery p{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 400;
+	color: #762e00;
+}
+
+.reparto{
+	width: 75%;
+	margin: 0 auto;
+	padding-top: 2rem;
+}
+
+.reparto hr{
+	border-top: 2px solid #77391e;
+	width: 95%;
+	margin-top: .3rem;
+	margin-bottom: 1rem;
+}
+
+.reparto h1{
+	font-family: Fira Sans, sans-serif;
+	color: #e51a23;
+	font-weight: 900;
+}
+
+
+hr.light{
+	border-top: 1px solid #d5d5d5;
+	width: 75%;
+	margin-top: .8rem;
+	margin-bottom: 1rem;
+}
+
+footer{
+	background-color: #cc0000;
+	color: #d5d5d5;
+	padding-top: 2rem;
+}
+
+footer a{
+	color: #d5d5d5;
+}
+
+hr.light-100{
+	border-top: 1px solid #d5d5d5;
+	width: 100%;
+	margin-top: .8rem;
+	margin-bottom: 1rem;
+}
+
+
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+
+.fixed-wrap {
+  background-image: url('img/Principal_A.jpg');
+  height: 100%;
+  position: fixed;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fixed:before{
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.fixed-wrap h1{
+	position: relative;
+	color: #fff;
+	font-family: Fira Sans, sans-serif;
+	font-weight: 900;
+}
+
+.fixed-wrap h3{
+	position: relative;
+	color: #fff;
+	font-family: Fira Sans, sans-serif;
+	font-weight: 200;
+}
+
+.fixed-wrap button{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 400;
+}
+
+.fixed h1{
+	font-size: 60px;
+	font-family: "fjalla one" sans-serif;
+}
+
+.fixed h3{
+	font-size: 25px;
+	font-family: "lato", sans-serif;
+	width: 60px;
+	text-align: center;
+}
+
+.products h3{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 900;
+	color: #460f12;
+
+}
+
+.products p{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 400;
+	color: #762e00;
+}
+
+.products h3{
+	color: #e51a23;
+}
+
+.products{
+	background-color: #fefde1;
+}
+
+.social h2{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 900;
+	color: #762e00;
+}
+
+
+.footer p,h5{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 400;
+	color: #fff;
+}
+
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+
+.menu{
+	width: 100%;
+	background-color: #fff;
+}
+
+.menu h1{
+	padding: 10px;
+	font-family: Fira Sans, sans-serif;
+	color: #460f12;
+	font-weight: 900;
+	text-align: center;
+    margin-top: 25px;
+
+}
+
+.titlemenu{
+	padding: 10px;
+	font-family: Fira Sans, sans-serif;
+	color: #460f12;
+	font-weight: 900;
+	text-align: center;
+    margin-top: 75px;
+}
+
+.menu-eventos p{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 400;
+	color: #460f12;
+	text-align: center;
+}
+
+.menu-eventos label{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 400;
+	color: #a52d35;
+	text-align: center;
+}
+
+.menu-eventos{
+	width: 100%;
+	background-color: #fff;
+}
+
+.menu-eventos h1{
+	padding: 10px;
+	font-family: Fira Sans, sans-serif;
+	color: #460f12;
+	font-weight: 900;
+	text-align: center;
+}
+
+.menu p{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 400;
+	color: #460f12;
+	text-align: center;
+}
+
+.background-white h1{
+	padding: 10px;
+	font-family: Fira Sans, sans-serif;
+	color: #460f12;
+	font-weight: 900;
+	text-align: center;
+}
+
+.background-white p{
+	font-family: Fira Sans, sans-serif;
+	font-weight: 400;
+	color: #460f12;
+	text-align: center;
+}
+
+#main-tittle{
+	color: rgb(170, 137, 47);
+}
+
+#main-tittle-white{
+	color: #a52a35;
+}
+
+#product-name{
+	font-family: unicorn, sans-serif;
+	color: #fff;
+	font-size: xx-large;
+}
+
+.menu h1{
+	font-family: unicorn, sans-serif;
+	color: #fff;
+	font-size: xx-large;
+}
+
+.menu h2{
+	font-family: Fira Sans, sans-serif;
+	color: #fff;
+	font-weight: 900;
+}
+
+.menu p{
+	font-family: Fira Sans, sans-serif;
+	color: #fff;
+	font-weight: 400;
+}
+
+.menu hr{
+	border-top: 2px solid #77391e;
+	width: 95%;
+	margin-top: .3rem;
+	margin-bottom: 1rem;
+}
+
+.menu{
+	background-color: #21120d;
+	text-align: center;
+}
+
+.menu-eventos h1{
+	font-family: unicorn, sans-serif;
+	color: #fff;
+	font-size: xx-large;
+}
+
+.menu-eventos p{
+	font-family: Fira Sans, sans-serif;
+	color: #fff;
+	font-weight: 400;
+}
+
+.menu-eventos hr{
+	border-top: 2px solid #77391e;
+	width: 95%;
+	margin-top: .3rem;
+	margin-bottom: 1rem;
+}
+
+.menu-eventos{
+	background-color: #460f12;
+	text-align: center;
+}
+
+.background-white h1{
+	font-family: unicorn, sans-serif;
+	color: #a52a35;
+	font-size: xx-large;
+}
+
+.background-white h2{
+	font-family: Fira Sans, sans-serif;
+	color: #460f12;
+	font-size: 900;
+}
+
+.background-white p{
+	font-family: Fira Sans, sans-serif;
+	color: #460f12;
+	font-size: 400;
+}
+
+.background-white hr{
+	border-top: 2px solid #77391e;
+	width: 95%;
+	margin-top: .3rem;
+	margin-bottom: 1rem;
+}
+
+.background-white{
+    border-radius: 10px;
+	background-color:#e0d1d8;
+	text-align: center;
+}
+
+.separator{
+	background-image: url("img/iconos13.png");
+	background-repeat: repeat-x;
+}
+
+#price{
+	font-weight: bold;
+}
+
+#price-tortas{
+	font-family: Fira Sans, sans-serif;
+	color: #a52a35;
+	font-size: 400;
+	font-weight: bold;
+}
+
+#justify-text{
+	text-align: left;
+}
+
+#product-name-tortas{
+	font-family: unicorn, sans-serif;
+	color: #a51a23;
+	font-size: xx-large;
+}
+
+#description-tortas{
+	font-family: Fira Sans, sans-serif;
+	color: #460f12;
+	font-size: 400;
+}
+
+#tittle-tortas{
+	font-family: unicorn, sans-serif;
+	color: #a52a35;
+	font-size: 400;
+}
+
+.nuestra-historia h1,h2{
+	font-family: Fira Sans, sans-serif;
+	color: #e51a23;
+	font-size: 900;
+	text-align: center;
+	font-weight: 600;
+	/*text-decoration: underline;*/
+}
+
+
+
+.history ul,li{
+	font-family: Fira Sans, sans-serif;
+	color: #000;
+	font-size: 400;
+}
+
+.history p{
+	text-align: justify;
+	font-family: Fira Sans, sans-serif;
+	color: #460f12;
+	font-size: 400;
+}
+
+.backgorund-historia{
+	background-color: #fefde1;
+}
+
+.nosotros p{
+	text-align: center;
+	font-family: Fira Sans, sans-serif;
+	color: #000;
+	font-size: 400;
+}
+
+.responsive{
+	width: 100%;
+	height: 0;
+	position: relative;
+}
+
+.responsive-iframe iframe{
+	position:absolute;
+	width: 100%;
+	height: 100%;
+}
+
+@font-face{
+	font-family: 'bigblunt';
+	src: url(fonts/ARB-218-finished-FREEWARE.ttf) format("truetype");
+}
+
+@font-face{
+	font-family: 'unicorn';
+	src: url(fonts/UNICORN+PARADISE.ttf) format("truetype");
+}
+
+.background-image {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Ajusta la altura según sea necesario */
+    background-image: url('../img/taques.jpg'); /* Reemplaza 'ruta/de/la/imagen.jpg' con la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fixed-wrap {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.green-glow {
+    background-color: rgba(176, 146, 146, 0.394); /* Define el color de fondo y la opacidad */
+}

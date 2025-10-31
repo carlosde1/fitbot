@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <title>Hello World</title>
+        <link rel="icon" href="./IMG/laplebiico.ico" type="image">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <style>
+            html, body{
+                height: 100%;
+                width: 100%;
+                font-family: 'Arial Narrow';
+                color: #222;
+                background-color: #c2bdbd;
+            }
+    
+            .fixed-wrap {
+                background-image: url('./IMG/laplebi.png');
+                height: 100%;
+                position: fixed;
+                background-size: cover;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+    
+            .fixed h1, .fixed h3 {
+                position: relative;
+                color: #fff;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                text-align: center;
+            }
+    
+            .glow {
+                animation: glow 2s ease-in-out infinite alternate;
+            }
+    
+            @keyframes glow {
+                from {
+                    text-shadow: 0 0 10px #a52d35, 0 0 20px #b12a24, 0 0 30px #97221c;
+                }
+                to {
+                    text-shadow: 0 0 20px #7471b5, 0 0 30px #4b457c, 0 0 40px #322b61;
+                }
+            }
+    
+    
+            .btn-primary {
+                background-color: #a51a23;
+                border: 1px solid #a51a23;
+            }
+    
+            .btn-primary:hover {
+                background-color: #322b61;
+                border: 1px solid #322b61;
+            }
+    
+        </style>
+    </head>
+    <body>
+    
+        <div class="fixed-wrap">
+            <div class="fixed">
+                <h1 class="glow">¡Bienvenido a La Plebi!</h1>
+                <h3 class="glow">Disfruta de la mejor birria en nuestro restaurante</h3>
+                <p style="text-align: center;"><a href="index.html" class="btn btn-primary btn-lg">Ir al Inicio</a></p>
+            </div>
+        </div>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
